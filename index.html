@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>徐一洋 — 个人作品集</title>
+	<style>
+		:root{
+			--bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7;
+			--glass: rgba(255,255,255,0.04);
+		}
+		*{box-sizing:border-box}
+		html,body{height:100%;margin:0;font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:linear-gradient(180deg,#071028 0%, #0f1724 100%); color:#e6eef6}
+		a{color:var(--accent);text-decoration:none}
+
+		/* Top-right navigation */
+		.topbar{position:fixed;right:20px;top:18px;z-index:60;display:flex;gap:12px;align-items:center}
+		.nav-btn{background:var(--glass);color:inherit;padding:8px 12px;border-radius:8px;cursor:pointer;border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px)}
+		.nav-btn.active{box-shadow:0 6px 20px rgba(0,0,0,0.6);border-color:rgba(110,231,183,0.25)}
+
+		/* Page container */
+		main{padding:0;margin:0}
+		section{min-height:100vh;padding:48px 6vw 80px;display:flex;align-items:center;justify-content:center}
+		.hero{width:100%;max-width:1100px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;padding:36px;box-shadow:0 10px 40px rgba(2,6,23,0.7);display:grid;grid-template-columns:1fr 420px;gap:28px}
+		.hero .intro{padding:8px}
+		h1{margin:0 0 8px;font-size:34px;letter-spacing:0.4px}
+		p.lead{color:var(--muted);margin-top:0}
+
+		.banner{border-radius:10px;overflow:hidden;background:#061226;border:1px solid rgba(255,255,255,0.03)}
+		.banner img{display:block;width:100%;height:100%;object-fit:cover}
+
+		/* About */
+		.about-card{max-width:900px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:12px}
+
+		/* Portfolio stacked pages */
+		.portfolio{width:100%;max-width:1100px}
+		.work-section{background:var(--card);border-radius:12px;padding:22px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:18px;align-items:center}
+		.work-thumb{width:240px;height:140px;border-radius:8px;overflow:hidden;flex-shrink:0}
+		.work-thumb img{width:100%;height:100%;object-fit:cover}
+		.work-meta h3{margin:0 0 8px}
+		.toc{position:fixed;left:18px;top:40vh;background:var(--glass);padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+		.toc a{display:block;padding:6px 10px;border-radius:6px;color:var(--muted)}
+
+		/* small screens */
+		@media (max-width:900px){
+			.hero{grid-template-columns:1fr;}
+			.topbar{right:12px;top:12px}
+			.toc{display:none}
+			.work-thumb{width:120px;height:88px}
+		}
+
+		/* Smooth anchors */
+		html{scroll-behavior:smooth}
+
+		footer{padding:20px;text-align:center;color:var(--muted);font-size:13px}
+	</style>
+</head>
+<body>
+
+	<div class="topbar" role="navigation" aria-label="页面导航">
+		<button class="nav-btn active" data-target="start">首页</button>
+		<button class="nav-btn" data-target="about">自我简介</button>
+		<button class="nav-btn" data-target="portfolio">作品集</button>
+	</div>
+
+	<main>
+		<!-- Start / Home page -->
+		<section id="start" data-page="start">
+			<div class="hero">
+				<div class="intro">
+					<h1>徐一洋</h1>
+					<p class="lead">欢迎来到我的个人作品集。点右上角切换到“自我简介”或“作品集”。向下滚动可以查看作品。</p>
+					<p style="margin-top:18px;color:var(--muted)">快捷： <a href="#portfolio">查看作品集</a> · <a href="#about">了解我</a></p>
+				</div>
+				<div class="banner">
+					<img src="startpage.png" alt="startpage banner">
+				</div>
+			</div>
+		</section>
+
+		<!-- About page -->
+		<section id="about" data-page="about">
+			<div class="about-card">
+				<h2>自我简介</h2>
+				<p class="lead">这里是关于我的简短介绍。你可以把这段话替换为你的真实简介、经历、联系方式等。</p>
+				<div style="display:flex;gap:18px;align-items:center;margin-top:18px;flex-wrap:wrap">
+					<div style="width:320px;border-radius:8px;overflow:hidden">
+						<img src="aboutpage.png" alt="about" style="width:100%;height:100%;object-fit:cover">
+					</div>
+					<div style="flex:1;color:var(--muted)">
+						<p>视觉设计、摄影、数字修图与短视频创作。擅长在色彩与光影中表达主题。欢迎联系合作。</p>
+						<p><strong>邮箱：</strong>yourname@example.com</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Portfolio container -->
+		<section id="portfolio" data-page="portfolio">
+			<div class="portfolio">
+				<h2 style="margin-top:6px;margin-bottom:12px">作品集</h2>
+				<div style="color:var(--muted);margin-bottom:12px">下面按版块从上到下排列：绘画 / 摄影 / PS 修图 / 视频</div>
+
+				<!-- painting -->
+				<article id="painting" class="work-section">
+					<div class="work-thumb"><img src="paintingpage.png" alt="painting"></div>
+					<div class="work-meta">
+						<h3>Painting（绘画）</h3>
+						<p style="margin:0;color:var(--muted)">展示传统与数字绘画作品的代表图。</p>
+					</div>
+				</article>
+
+				<!-- photo -->
+				<article id="photo" class="work-section">
+					<div class="work-thumb"><img src="photopage.png" alt="photo"></div>
+					<div class="work-meta">
+						<h3>Photo（摄影）</h3>
+						<p style="margin:0;color:var(--muted)">摄影系列与风格探索。</p>
+					</div>
+				</article>
+
+				<!-- ps -->
+				<article id="ps" class="work-section">
+					<div class="work-thumb"><img src="pspage.png" alt="ps"></div>
+					<div class="work-meta">
+						<h3>PS（后期/合成）</h3>
+						<p style="margin:0;color:var(--muted)">后期修图与合成示例。</p>
+					</div>
+				</article>
+
+				<!-- video -->
+				<article id="video" class="work-section">
+					<div class="work-thumb"><img src="videopage.png" alt="video"></div>
+					<div class="work-meta">
+						<h3>Video（视频）</h3>
+						<p style="margin:0;color:var(--muted)">短片与影像实验（封面示意图）。</p>
+					</div>
+				</article>
+
+			</div>
+		</section>
+	</main>
+
+	<div class="toc" aria-hidden="false">
+		<strong style="display:block;margin-bottom:6px;color:var(--muted)">作品集导航</strong>
+		<a href="#painting">绘画</a>
+		<a href="#photo">摄影</a>
+		<a href="#ps">PS 修图</a>
+		<a href="#video">视频</a>
+	</div>
+
+	<footer>© 徐一洋 — 本页面为静态演示，图片来源于本目录</footer>
+
+	<script>
+		// 简单导航切换逻辑：右上角按钮切换到指定页面并高亮
+		(function(){
+			const btns = document.querySelectorAll('.nav-btn');
+			const pages = {start:document.getElementById('start'), about:document.getElementById('about'), portfolio:document.getElementById('portfolio')};
+
+			function activate(name){
+				btns.forEach(b=>b.classList.toggle('active', b.dataset.target===name));
+				// 跳转到对应锚点
+				const el = pages[name];
+				if(el) el.scrollIntoView({behavior:'smooth'});
+			}
+
+			btns.forEach(b=>b.addEventListener('click', ()=>{activate(b.dataset.target)}));
+
+			// 根据 URL hash 初始化（支持直接打开 #about 或 #portfolio）
+			const h = location.hash.replace('#','');
+			if(h && pages[h]){
+				// slight delay to let layout settle
+				setTimeout(()=>activate(h),120);
+			} else {
+				// 默认首页
+				activate('start');
+			}
+
+			// 当用户滚动到作品集内部时，可考虑高亮“作品集”按钮
+			const obs = new IntersectionObserver((entries)=>{
+				entries.forEach(en=>{
+					if(en.isIntersecting && en.target.id==='portfolio'){
+						btns.forEach(b=>b.classList.toggle('active', b.dataset.target==='portfolio'))
+					}
+				})
+			},{threshold:0.3});
+			obs.observe(document.getElementById('portfolio'));
+		})();
+	</script>
+</body>
+</html>
